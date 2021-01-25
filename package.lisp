@@ -5,4 +5,5 @@
   (:export #:create-reader
 	   #:zstd-read-line
 	   #:delete-line
-	   #:close-reader))
+	   #:close-reader
+	   #:with-read-line))

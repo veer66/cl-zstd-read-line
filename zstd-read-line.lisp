@@ -18,8 +18,13 @@
 (use-foreign-library zstd_read_line)
 
 (defcfun ("zstd_line_read_new" create-reader) :pointer (zstd_archive_path :string))
-(defcfun ("zstd_line_read" zstd-read-line) :string (reader :pointer))
-(defcfun ("zstd_line_read_delete_line" delete-line) :void (line :string))
+(defcfun ("zstd_line_read" zstd-read-line*) :pointer (reader :pointer))
+(defcfun ("zstd_line_read_delete_line" delete-line) :void (line :pointer))
 (defcfun ("zstd_line_read_delete" close-reader) :void (reader :pointer))
 
-
+(defun zstd-read-line (reader)
+  (let ((buf (zstd-read-line* reader)))
+    (unless (null-pointer-p buf)
+      (let ((line (foreign-string-to-lisp buf)))
+	(delete-line buf)
+	line))))
