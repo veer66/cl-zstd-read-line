@@ -1,9 +1,8 @@
 # zstd-read-line
-### _Your Name <your.name@example.com>_
+### _Vee Satayamas <5ssgdxltv@relay.firefox.com>_
 
-This is a project to do ... something.
+zstd-read-line is a (zstd_read_line)[https://github.com/veer66/zstd_read_line]'s wrapper for Common Lisp
 
 ## License
 
-Specify license here
-
+GPL-3.0
