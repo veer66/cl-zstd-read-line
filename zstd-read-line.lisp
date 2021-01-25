@@ -2,9 +2,18 @@
 
 (in-package #:zstd-read-line)
 
+(print (type-of (namestring
+	 (asdf:system-relative-pathname :zstd-read-line
+					"zstd_read_line/target/release/zstd_read_line"))))
+
 (define-foreign-library zstd_read_line
-  (:win32 (:default "zstd_read_line/target/release/zstd_read_line"))
-  (t (:default "zstd_read_line/target/release/libzstd_read_line")))
+  (:win32 #.(namestring
+	   (asdf:system-relative-pathname :zstd-read-line
+					  "zstd_read_line/target/release/zstd_read_line.dll")))
+  (:unix #.(namestring
+	  (asdf:system-relative-pathname :zstd-read-line
+					 "zstd_read_line/target/release/libzstd_read_line.so")))
+  (t (:default "zstd_read_line")))
 
 (use-foreign-library zstd_read_line)
 
