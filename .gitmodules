@@ -1,0 +1,3 @@
+[submodule "zstd_read_line"]
+	path = zstd_read_line
+	url = git@github.com:veer66/zstd_read_line.git
