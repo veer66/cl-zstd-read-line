@@ -6,4 +6,5 @@
 	   #:zstd-read-line
 	   #:delete-line
 	   #:close-reader
-	   #:with-read-line))
+	   #:with-read-line
+	   #:unable-to-open-archive))
